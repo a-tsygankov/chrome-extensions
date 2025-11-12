@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "AI Video Detector",
+  "version": "0.1.0",
+  "description": "Detects and labels AI-generated videos on YouTube",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "background": { "service_worker": "src/background/serviceWorker.js" },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["src/content/contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "src/ui/popup.html",
+    "default_icon": {
+      "16": "public/icons/icon16.png",
+      "32": "public/icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "32": "public/icons/icon32.png",
+    "128": "public/icons/icon128.png"
+  }
+}
+
