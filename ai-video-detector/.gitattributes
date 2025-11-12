@@ -1,0 +1,95 @@
+########################################
+#  CORE LINE ENDINGS AND TEXT NORMALIZATION
+########################################
+
+# Normalize all text files to LF in repo, convert to native on checkout
+* text=auto eol=lf
+
+# Explicitly mark common text files
+*.cs     text diff=csharp
+*.csproj text
+*.sln    text
+*.ts     text diff=typescript
+*.tsx    text diff=typescript
+*.js     text
+*.jsx    text
+*.json   text
+*.html   text
+*.css    text
+*.scss   text
+*.md     text
+*.yml    text
+*.yaml   text
+*.xml    text
+*.sh     text eol=lf
+*.ps1    text eol=crlf
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+
+########################################
+#  DIFF DRIVERS AND HINTS
+########################################
+
+# Improve readability in diffs for specific languages
+*.cs     diff=csharp
+*.ts     diff=typescript
+*.tsx    diff=typescript
+*.js     diff=javascript
+*.jsx    diff=javascript
+*.json   diff=json
+*.html   diff=html
+*.xml    diff=xml
+*.md     diff=markdown
+
+########################################
+#  BINARY FILES
+########################################
+
+# Prevent diffing for binaries
+*.dll    binary
+*.exe    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.webp   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.zip    binary
+*.tar.gz binary
+*.7z     binary
+*.mp4    binary
+*.mov    binary
+*.pdf    binary
+
+########################################
+#  REPOSITORY-SPECIFIC RULES
+########################################
+
+# Don't diff built bundles or minified assets
+dist/*   binary
+build/*  binary
+out/*    binary
+*.min.js binary
+*.map    binary
+
+# Keep shell scripts LF only (important for macOS/Linux)
+*.sh text eol=lf
+
+# Keep PowerShell / Windows scripts CRLF only
+*.ps1 text eol=crlf
+
+########################################
+#  DOCUMENTATION / MARKDOWN / LICENSES
+########################################
+
+README.md text diff=markdown
+LICENSE   text
+CHANGELOG.md text diff=markdown
+
+########################################
+#  GIT ATTRIBUTES END
+########################################
