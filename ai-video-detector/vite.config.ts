@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Basic Vite config for Chrome extension
 export default defineConfig({
     plugins: [react()],
     build: {
@@ -9,14 +8,13 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                popup: 'src/ui/popup.html',
-                options: 'src/ui/options.html',
+                popup: 'src/ui/popup.html'
             },
             output: {
                 entryFileNames: 'assets/[name].js',
                 chunkFileNames: 'assets/[name].js',
-                assetFileNames: 'assets/[name].[ext]',
-            },
-        },
-    },
+                assetFileNames: 'assets/[name].[ext]'
+            }
+        }
+    }
 })
